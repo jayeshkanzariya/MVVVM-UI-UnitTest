@@ -1,0 +1,6 @@
+framework module Pods_TechFlakeAssignmentUITests {
+  umbrella header "Pods-TechFlakeAssignmentUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
