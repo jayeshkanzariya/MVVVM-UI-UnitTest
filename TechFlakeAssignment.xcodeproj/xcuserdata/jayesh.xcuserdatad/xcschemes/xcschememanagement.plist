@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>TechFlakeAssignmentUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>44B391B120FCE8FC0091F47D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44B391C520FCE9140091F47D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44B391D020FCE9140091F47D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
