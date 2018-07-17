@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1DE0448A742F283D293DDA0D /* Pods_TechFlakeAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706979B4DF3858679C296F80 /* Pods_TechFlakeAssignment.framework */; };
 		3721A9BE5E02339B34C5345E /* Pods_TechFlakeAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FC2B0736001C54320B8122 /* Pods_TechFlakeAssignmentTests.framework */; };
+		448EEC9C20FDB61300EB6DA1 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448EEC9A20FDB61200EB6DA1 /* NewsDetailViewController.swift */; };
+		448EEC9D20FDB61300EB6DA1 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448EEC9B20FDB61200EB6DA1 /* WebViewViewController.swift */; };
+		448EEC9F20FDB67E00EB6DA1 /* JKFullScreenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448EEC9E20FDB67D00EB6DA1 /* JKFullScreenImage.swift */; };
 		44B391B620FCE8FC0091F47D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B391B520FCE8FC0091F47D /* AppDelegate.swift */; };
 		44B391BB20FCE8FC0091F47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44B391B920FCE8FC0091F47D /* Main.storyboard */; };
 		44B391BD20FCE9130091F47D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B391BC20FCE9130091F47D /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		42DC703D2E0026E46D7FA33F /* Pods-TechFlakeAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechFlakeAssignmentUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TechFlakeAssignmentUITests/Pods-TechFlakeAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
+		448EEC9A20FDB61200EB6DA1 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		448EEC9B20FDB61200EB6DA1 /* WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		448EEC9E20FDB67D00EB6DA1 /* JKFullScreenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKFullScreenImage.swift; sourceTree = "<group>"; };
 		44B391B220FCE8FC0091F47D /* TechFlakeAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechFlakeAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B391B520FCE8FC0091F47D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44B391BA20FCE8FC0091F47D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,7 +132,6 @@
 		44B391B420FCE8FC0091F47D /* TechFlakeAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				44B391F720FCF7FB0091F47D /* Extensions */,
 				44B391F420FCF1C90091F47D /* Constants */,
 				44B391F120FCEE640091F47D /* Model */,
 				44B391EE20FCEE4C0091F47D /* Cells */,
@@ -163,6 +168,8 @@
 		44B391E320FCEBBD0091F47D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				448EEC9A20FDB61200EB6DA1 /* NewsDetailViewController.swift */,
+				448EEC9B20FDB61200EB6DA1 /* WebViewViewController.swift */,
 				44B391E420FCEBDF0091F47D /* NewsListViewController.swift */,
 			);
 			path = ViewControllers;
@@ -179,6 +186,7 @@
 		44B391E920FCEDC60091F47D /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				448EEC9E20FDB67D00EB6DA1 /* JKFullScreenImage.swift */,
 				44B391EA20FCEDC60091F47D /* PinterestLayout.swift */,
 				44B391EB20FCEDC60091F47D /* UIClasses.swift */,
 			);
@@ -207,13 +215,6 @@
 				44B391F520FCF1DE0091F47D /* Constants.swift */,
 			);
 			path = Constants;
-			sourceTree = "<group>";
-		};
-		44B391F720FCF7FB0091F47D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		54AE0510A2A0CDFC7C2AE76F /* Frameworks */ = {
@@ -453,12 +454,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448EEC9D20FDB61300EB6DA1 /* WebViewViewController.swift in Sources */,
+				448EEC9F20FDB67E00EB6DA1 /* JKFullScreenImage.swift in Sources */,
 				44B391F320FCEE640091F47D /* NewsModel.swift in Sources */,
 				44B391EC20FCEDC60091F47D /* PinterestLayout.swift in Sources */,
 				44B391E520FCEBDF0091F47D /* NewsListViewController.swift in Sources */,
 				44B391F020FCEE4C0091F47D /* NewsInfoCollectionViewCell.swift in Sources */,
 				44B391E820FCED7A0091F47D /* NewsViewModel.swift in Sources */,
 				44B391B620FCE8FC0091F47D /* AppDelegate.swift in Sources */,
+				448EEC9C20FDB61300EB6DA1 /* NewsDetailViewController.swift in Sources */,
 				44B391ED20FCEDC60091F47D /* UIClasses.swift in Sources */,
 				44B391F620FCF1DE0091F47D /* Constants.swift in Sources */,
 			);

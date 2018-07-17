@@ -32,6 +32,12 @@ class NewsViewModel {
                             let arrNews  = Mapper<NewsModel>().mapArray(JSONArray: articles)
                             successCompletion(arrNews)
                         }
+                        else{
+                            errorHandler(ErrorMessage.ErrorFetchingNews)
+                        }
+                    }
+                    else{
+                        errorHandler(ErrorMessage.ErrorFetchingNews)
                     }
                     break
                 case .failure(let error):

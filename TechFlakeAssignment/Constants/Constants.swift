@@ -13,3 +13,8 @@ struct APIEndPoint {
     static let GetNews = serverUrl + "top-headlines"
     
 }
+
+struct ErrorMessage {
+    static let ErrorFetchingNews = "Getting issues on fetching news."
+    static let NoNewsFound = "No News Found."
+}

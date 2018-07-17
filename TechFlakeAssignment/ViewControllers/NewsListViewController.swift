@@ -45,8 +45,8 @@ class NewsListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailSegue"{
-//            let destVC = segue.destination as! NewsDetailViewController
-//            destVC.objNews = sender as? NewsModel
+            let destVC = segue.destination as! NewsDetailViewController
+            destVC.objNews = sender as? NewsModel
         }
     }
     
@@ -74,7 +74,7 @@ extension NewsListViewController : UICollectionViewDataSource,UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: "DetailSegue", sender:.arrNewsList[indexPath.item])
+        self.performSegue(withIdentifier: "DetailSegue", sender:arrNewsList[indexPath.item])
     }
 }
 

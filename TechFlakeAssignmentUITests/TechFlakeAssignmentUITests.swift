@@ -39,10 +39,56 @@ class TechFlakeAssignmentUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-                        
-        addUIInterruptionMonitor(withDescription: "") { (<#XCUIElement#>) -> Bool in
-            <#code#>
+        let collectionview = XCUIApplication().collectionViews["News"]
+        let success = collectionview.waitForExistence(timeout: 15)
+
+        XCTAssert(success, "Fail to Find Collection View")
+        snapshot("News List")   // Taking screen shot for news list
+        
+        
+        collectionview.cells.element(boundBy: 1).tap()
+        snapshot("Details") // Taking screen shot for Details
+        
+        let lbl = XCUIApplication().staticTexts.element(matching: .any, identifier: "link")
+        lbl.tap()
+        
+        let webView =  XCUIApplication().webViews["webView"]
+        let issuccess = webView.waitForExistence(timeout: 20)
+        snapshot("Link")
+    
+    }
+    
+}
+
+
+extension XCTestCase {
+    func snapshot(_ name: String) {
+        print("snapshot: \(name)")
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let screenshotDirectory = documentDirectory.appendingPathComponent("Screenshots", isDirectory: true)
+        if !FileManager.default.fileExists(atPath: screenshotDirectory.absoluteString){
+            do{
+                try FileManager.default.createDirectory(at: screenshotDirectory, withIntermediateDirectories: true, attributes: nil)
+            }
+            catch (let error){
+                print(error.localizedDescription)
+            }
+        }
+        print(screenshotDirectory)
+        
+        sleep(2) // Waiting for the animation to be finished (kind of)
+        let screenshot = XCUIApplication().windows.firstMatch.screenshot()
+        guard let simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"] else { return }
+        let path = screenshotDirectory.appendingPathComponent("\(simulator)-\(name).png")
+        do {
+            try screenshot.pngRepresentation.write(to: path)
+        } catch let error {
+            print("Problem writing screenshot: \(name) to \(path)")
+            print(error)
         }
     }
     
+    func createSnapShotFolder() {
+        
+    }
 }
