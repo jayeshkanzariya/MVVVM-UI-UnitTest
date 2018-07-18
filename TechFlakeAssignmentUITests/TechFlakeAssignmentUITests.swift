@@ -13,7 +13,7 @@ import XCTest
 class TechFlakeAssignmentUITests: XCTestCase {
     
 //    var newsList : NewsViewModel?
-    
+    var app =  XCUIApplication()
     override func setUp() {
         super.setUp()
         
@@ -36,7 +36,7 @@ class TechFlakeAssignmentUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testNavigation() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let collectionview = XCUIApplication().collectionViews["News"]
@@ -45,17 +45,23 @@ class TechFlakeAssignmentUITests: XCTestCase {
         XCTAssert(success, "Fail to Find Collection View")
         snapshot("News List")   // Taking screen shot for news list
         
+        let numberofCell = collectionview.cells.matching(identifier: "NewsInfoCollectionViewCell").count
         
-        collectionview.cells.element(boundBy: 1).tap()
-        snapshot("Details") // Taking screen shot for Details
+        for i in 0..<numberofCell{
+            collectionview.cells.element(boundBy: i).tap()
+            snapshot("Details cell \(i)") // Taking screen shot for Details
+            if i != numberofCell - 1{
+                app.navigationBars.buttons.element(boundBy: 0).tap()
+            }
+        }
+        
         
         let lbl = XCUIApplication().staticTexts.element(matching: .any, identifier: "link")
         lbl.tap()
         
         let webView =  XCUIApplication().webViews["webView"]
-        let issuccess = webView.waitForExistence(timeout: 20)
+        _ = webView.waitForExistence(timeout: 20)
         snapshot("Link")
-    
     }
     
 }
@@ -65,21 +71,20 @@ extension XCTestCase {
     func snapshot(_ name: String) {
         print("snapshot: \(name)")
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let screenshotDirectory = documentDirectory.appendingPathComponent("Screenshots", isDirectory: true)
-        if !FileManager.default.fileExists(atPath: screenshotDirectory.absoluteString){
+        let screenshotPath = documentDirectory.appendingPathComponent("Screenshots", isDirectory: true)
+        if !FileManager.default.fileExists(atPath: screenshotPath.absoluteString){
             do{
-                try FileManager.default.createDirectory(at: screenshotDirectory, withIntermediateDirectories: true, attributes: nil)
+                try FileManager.default.createDirectory(at: screenshotPath, withIntermediateDirectories: true, attributes: nil)
             }
             catch (let error){
                 print(error.localizedDescription)
             }
         }
-        print(screenshotDirectory)
-        
+        print(screenshotPath)
         sleep(2) // Waiting for the animation to be finished (kind of)
         let screenshot = XCUIApplication().windows.firstMatch.screenshot()
         guard let simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"] else { return }
-        let path = screenshotDirectory.appendingPathComponent("\(simulator)-\(name).png")
+        let path = screenshotPath.appendingPathComponent("\(simulator)-\(name).png")
         do {
             try screenshot.pngRepresentation.write(to: path)
         } catch let error {

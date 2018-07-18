@@ -23,11 +23,10 @@ class TechFlakeAssignmentTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testApiCall() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expect = XCTestExpectation(description: "Api Call")
-        
         newsList?.getNewsList(successCompletion: { (model) in
             expect.fulfill()
             XCTAssert(true, "success")
@@ -36,7 +35,6 @@ class TechFlakeAssignmentTests: XCTestCase {
             expect.fulfill()
             XCTAssert(false, error)
         }
-        
         wait(for: [expect], timeout: 20)
     }
     
