@@ -11,10 +11,10 @@ import XCTest
 
 class TechFlakeAssignmentTests: XCTestCase {
     
-    var newsList : NewsViewModel?
+    var objNewsViewModel : NewsViewModel?
     override func setUp() {
         super.setUp()
-        newsList = NewsViewModel()
+        objNewsViewModel = NewsViewModel()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -27,7 +27,7 @@ class TechFlakeAssignmentTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expect = XCTestExpectation(description: "Api Call")
-        newsList?.getNewsList(successCompletion: { (model) in
+        objNewsViewModel?.getNewsList(successCompletion: { (model) in
             expect.fulfill()
             XCTAssert(true, "success")
             XCTAssertGreaterThan(model.count, 0, ErrorMessage.NoNewsFound)

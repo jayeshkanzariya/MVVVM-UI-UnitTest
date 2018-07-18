@@ -7,13 +7,15 @@
 //
 
 import XCTest
+import UIKit
 @testable import TechFlakeAssignment
 
 
 class TechFlakeAssignmentUITests: XCTestCase {
     
-//    var newsList : NewsViewModel?
+//    var objNewsViewModel : NewsViewModel?
     var app =  XCUIApplication()
+    
     override func setUp() {
         super.setUp()
         
@@ -22,8 +24,11 @@ class TechFlakeAssignmentUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-//        newsList = NewsViewModel()
+        
         XCUIApplication().launch()
+        app.launchArguments.append("--uitesting")
+
+//        objNewsViewModel = NewsViewModel()
         
         
         
@@ -39,8 +44,20 @@ class TechFlakeAssignmentUITests: XCTestCase {
     func testNavigation() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+//        let expect = XCTestExpectation(description: "Api Call")
+        
+//        NewsViewModel().getNewsList(successCompletion: { (model) in
+//            expect.fulfill()
+//            XCTAssert(true, "success")
+//            XCTAssertGreaterThan(model.count, 0, ErrorMessage.NoNewsFound)
+//        }) { (error) in
+//            expect.fulfill()
+//            XCTAssert(false, error)
+//        }
+//        wait(for: [expect], timeout: 20)
         let collectionview = XCUIApplication().collectionViews["News"]
-        let success = collectionview.waitForExistence(timeout: 15)
+        let success = collectionview.waitForExistence(timeout: 240)
 
         XCTAssert(success, "Fail to Find Collection View")
         snapshot("News List")   // Taking screen shot for news list
@@ -55,9 +72,12 @@ class TechFlakeAssignmentUITests: XCTestCase {
             }
         }
         
+
+        let tableview = XCUIApplication().tables["tableview"]
+        tableview.cells.element(boundBy: tableview.cells.count - 1).tap()
         
-        let lbl = XCUIApplication().staticTexts.element(matching: .any, identifier: "link")
-        lbl.tap()
+//        let lbl = XCUIApplication().staticTexts.element(matching: .any, identifier: "link")
+//        lbl.tap()
         
         let webView =  XCUIApplication().webViews["webView"]
         _ = webView.waitForExistence(timeout: 20)
