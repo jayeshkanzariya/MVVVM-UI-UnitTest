@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -150,9 +149,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="UET-Qm-Z51" secondAttribute="bottom" constant="9.5" id="dat-s9-8On"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="UET-Qm-Z51" firstAttribute="width" secondItem="fCl-4r-l5V" secondAttribute="width" multiplier="0.4" id="KbW-CH-1iZ"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="imgView" destination="UET-Qm-Z51" id="R57-B9-RJ3"/>
                                         </connections>

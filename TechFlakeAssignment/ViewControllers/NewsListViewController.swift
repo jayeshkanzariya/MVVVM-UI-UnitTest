@@ -23,6 +23,7 @@ class NewsListViewController: UIViewController {
         if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
             layout.delegate = self
         }
+        getNews()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
