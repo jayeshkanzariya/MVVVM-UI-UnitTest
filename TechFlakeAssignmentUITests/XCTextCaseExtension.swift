@@ -11,7 +11,6 @@ import XCTest
 
 extension XCTestCase {
     func snapshot(_ name: String) {
-        print("snapshot: \(name)")
         if let url = createSnapShotFolder(){
             sleep(2) // Waiting for the animation to be finished (kind of)
             let screenshot = XCUIApplication().windows.firstMatch.screenshot()
@@ -29,6 +28,7 @@ extension XCTestCase {
     func createSnapShotFolder() -> URL?{
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let screenshotPath = documentDirectory.appendingPathComponent("Screenshots", isDirectory: true)
+        print("screenshotPath\(screenshotPath)")
         if !FileManager.default.fileExists(atPath: screenshotPath.absoluteString){
             do{
                 try FileManager.default.createDirectory(at: screenshotPath, withIntermediateDirectories: true, attributes: nil)

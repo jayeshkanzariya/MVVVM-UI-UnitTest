@@ -33,9 +33,12 @@ class NewsListViewController: UIViewController {
     }
     
     func getNews(){
+        self.showActivityIndicator()
         viewModel.getNewsList(successCompletion: { (news) in
+            self.hideActivityIndicator()
             self.collectionView.reloadData()
         }) { (errorMsg) in
+            self.hideActivityIndicator()
             print(errorMsg)
         }
     }
